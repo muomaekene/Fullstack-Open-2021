@@ -1,9 +1,9 @@
 import React from "react";
 
-const Total = ({ exercise }) => {
+const Total = (props) => {
   return (
     <div>
-      <p>Number of excercises {exercise} </p>
+      <p>Number of excercises {props.total_num} </p>
     </div>
   );
 };
