@@ -2,14 +2,13 @@ import React from "react";
 import Part from "./Part";
 
 const Content = (props) => {
-  const name = props.parts;
-  const num = props.exercises;
+  const courses = props.parts;
 
   return (
     <div>
-      <Part name={name[0]} num={num[0]} />
-      <Part name={name[1]} num={num[1]} />
-      <Part name={name[2]} num={num[2]} />
+      <Part name={courses[0].name} num={courses[0].exercises} />
+      <Part name={courses[1].name} num={courses[1].exercises} />
+      <Part name={courses[2].name} num={courses[2].exercises} />
     </div>
   );
 };
