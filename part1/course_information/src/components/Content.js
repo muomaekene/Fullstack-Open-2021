@@ -2,7 +2,8 @@ import React from "react";
 import Part from "./Part";
 
 const Content = (props) => {
-  const [part1, part2, part3] = props.parts;
+  const { parts } = props.parts;
+  const [part1, part2, part3] = parts;
 
   return (
     <div>
