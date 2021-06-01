@@ -1,9 +1,8 @@
 import React from "react";
 import Part from "./Part";
 
-const Content = (props) => {
-  const { parts } = props.parts;
-  const [part1, part2, part3] = parts;
+const Content = ({ parts }) => {
+  const [part1, part2, part3] = parts.parts;
 
   return (
     <div>

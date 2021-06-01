@@ -1,8 +1,7 @@
 import React from "react";
 
-const Total = (props) => {
-  const { parts } = props.parts;
-  const [part1, part2, part3] = parts;
+const Total = ({ parts }) => {
+  const [part1, part2, part3] = parts.parts;
 
   return (
     <div>
