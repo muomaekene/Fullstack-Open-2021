@@ -1,17 +1,21 @@
 import React from "react";
 
-const Statistics = ({ title, good, neutral, bad, feedback }) => {
+import Statistic from "./Statistic";
+
+const Statistics = ({ good, neutral, bad, feedback }) => {
   const averageStats = () => {
-    return (good + 0 - 1) / good + neutral + bad;
+    return (good + 0 - bad) / (good + neutral + bad) || 0;
   };
 
   const positiveStats = () => {
-    return (good / (good + neutral + bad)) * 100;
+    return (good / (good + neutral + bad)) * 100 || 0;
   };
+
+  const allFeedback = feedback.reduce((acc, value) => acc + value, 0);
 
   if (feedback.length === 0) {
     return (
-      <div>
+      <div className="stats">
         <h1>statistics</h1>
         <p>No feedback given</p>
       </div>
@@ -19,14 +23,14 @@ const Statistics = ({ title, good, neutral, bad, feedback }) => {
   }
 
   return (
-    <div>
+    <div className="stats">
       <h1>statistics</h1>
-      <div>good: {good}</div>
-      <div>neutral: {neutral}</div>
-      <div>bad: {bad}</div>
-      <div>all: {feedback.reduce((a, b) => a + b, 0)}</div>
-      <div>average: {averageStats()}</div>
-      <div>positive: {positiveStats()}% </div>
+      <Statistic text="good" value={good} />
+      <Statistic text="neutral" value={neutral} />
+      <Statistic text="bad" value={bad} />
+      <Statistic text="all" value={allFeedback} />
+      <Statistic text="average" value={averageStats()} />
+      <Statistic text="positive" value={positiveStats() + "%"} />
     </div>
   );
 };
