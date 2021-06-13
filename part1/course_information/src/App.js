@@ -1,4 +1,5 @@
 import React from "react";
+
 import Header from "./components/Header";
 import Content from "./components/Content";
 import Total from "./components/Total";
@@ -23,7 +24,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="App">
       <Header title={course} />
       <Content parts={course} />
       <Total parts={course} />
