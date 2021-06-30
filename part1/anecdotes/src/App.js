@@ -15,8 +15,8 @@ const App = () => {
 
   const [selected, setSelected] = useState(0);
   const [vote, setVote] = useState(initialVotes);
+  const [topVote, setTopVote] = useState(0);
 
-  // event listeners
   const handleNext = () => {
     setSelected(Math.floor(Math.random() * anecdotes.length));
   };
@@ -25,18 +25,30 @@ const App = () => {
     const totalVote = [...vote];
     totalVote[selected] += 1;
     setVote(totalVote);
+
+    setTopVote(vote.indexOf(Math.max(...vote)));
   };
 
   return (
     <div className="App">
-      <div>
-        "{anecdotes[selected]}"
-        <br />
-        has {vote[selected]} votes
+      <div className="all-anecdotes">
+        <h2>Anecdote of the day</h2>
+        <div className="anecdote">
+          "{anecdotes[selected]}"
+          <br />
+          <strong>has {vote[selected]} votes</strong>
+        </div>
+        <button onClick={handleVote}>vote</button>
+        <button onClick={handleNext}>next anecdote</button>
       </div>
-
-      <button onClick={handleVote}>vote</button>
-      <button onClick={handleNext}>next anecdote</button>
+      <div className="top-anecdote">
+        <h2>Anecdote with most votes</h2>
+        <div>
+          "{anecdotes[topVote]}"
+          <br />
+          <strong>has {vote[topVote]} votes</strong>
+        </div>
+      </div>
     </div>
   );
 };
