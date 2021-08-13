@@ -38,7 +38,7 @@ const App = () => {
           <br />
           <strong>has {vote[selected]} votes</strong>
         </div>
-        <button onClick={handleVote}>vote</button>
+        <button onClick={()=> handleVote()}>vote</button>
         <button onClick={handleNext}>next anecdote</button>
       </div>
       <div className="top-anecdote">
